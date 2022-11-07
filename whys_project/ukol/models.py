@@ -1,6 +1,8 @@
 from django.db import models
 
-
+"""
+TODO: work with Foreing keys? I understood that task was only about "dummy" numbers not Foreign key
+"""
 class Attribute(models.Model):
     id = models.IntegerField(primary_key=True)
     nazev_atributu_id = models.IntegerField()
@@ -70,8 +72,3 @@ class ProductAttributes(models.Model):
 
     def __str__(self):
         return self.attribute
-
-
-
-
-

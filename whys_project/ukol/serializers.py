@@ -2,9 +2,6 @@ from rest_framework import serializers
 from ukol.models import *
 
 
-
-
-
 class AttributeNameSerializer(serializers.Serializer):
     nazev = serializers.CharField()
     zobrazit = serializers.BooleanField(default=False)
@@ -17,7 +14,7 @@ class AttributeNameSerializer(serializers.Serializer):
 
     class Meta:
         model = AttributeName
-        fields = '__all__'
+        fields = "__all__"
 
 
 class ProductSerializer(serializers.Serializer):
@@ -37,7 +34,7 @@ class ProductSerializer(serializers.Serializer):
 
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = "__all__"
 
 
 class AttributeValueSerializer(serializers.Serializer):
@@ -52,7 +49,7 @@ class AttributeValueSerializer(serializers.Serializer):
 
     class Meta:
         model = AttributeValue
-        fields = '__all__'
+        fields = "__all__"
 
 
 class ImageSerializer(serializers.Serializer):
@@ -67,7 +64,7 @@ class ImageSerializer(serializers.Serializer):
 
     class Meta:
         model = Image
-        fields = '__all__'
+        fields = "__all__"
 
 
 class ProductImageSerializer(serializers.Serializer):
@@ -84,7 +81,7 @@ class ProductImageSerializer(serializers.Serializer):
 
     class Meta:
         model = ProductImage
-        fields = '__all__'
+        fields = "__all__"
 
 
 class AttributeSerializer(serializers.Serializer):
@@ -100,15 +97,19 @@ class AttributeSerializer(serializers.Serializer):
 
     class Meta:
         model = Attribute
-        fields = '__all__'
+        fields = "__all__"
 
 
 class CatalogSerializer(serializers.Serializer):
     id = serializers.IntegerField()
-    products_ids = serializers.ListField(child=serializers.IntegerField(), allow_null=True)
+    products_ids = serializers.ListField(
+        child=serializers.IntegerField(), allow_null=True
+    )
     obrazek_id = serializers.IntegerField(allow_null=True)
     nazev = serializers.CharField(allow_null=True)
-    attributes_ids = serializers.ListField(child=serializers.IntegerField(), allow_null=True)
+    attributes_ids = serializers.ListField(
+        child=serializers.IntegerField(), allow_null=True
+    )
 
     def create(self, validated_data):
         return Catalog.objects.create(**validated_data)
@@ -118,7 +119,7 @@ class CatalogSerializer(serializers.Serializer):
 
     class Meta:
         model = Catalog
-        fields = ['id', 'products_ids']
+        fields = ["id", "products_ids"]
 
 
 class AttributeValueSerializer(serializers.Serializer):
