@@ -16,8 +16,9 @@ Ze zadani mi vyplynulo, ze foreign klice u modelu nejsou jasne dana. Tudiz jsem 
 
 Spusteni:
 vsechny balicky jsou v requirements.txt
-* `pip install -r requirements.txt`
+* `cd django_ukol`
 * `cd whys_project`
+* `pip install -r requirements.txt`
 * `python manage.py makemigrations`
 * `python manage.py migrate`
 * `python manage.py runserver`
